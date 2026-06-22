@@ -1,0 +1,54 @@
+/* =============================================
+   DASHBOARD CSS - Admin & Étudiant
+   ============================================= */
+.sidebar { scrollbar-width: thin; scrollbar-color: rgba(212,160,23,0.3) transparent; }
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: rgba(212,160,23,0.3); border-radius: 2px; }
+
+.stat-card:nth-child(1) { border-left: 3px solid #3b82f6; }
+.stat-card:nth-child(2) { border-left: 3px solid var(--accent); }
+.stat-card:nth-child(3) { border-left: 3px solid #22c55e; }
+.stat-card:nth-child(4) { border-left: 3px solid #f59e0b; }
+.stat-card:nth-child(5) { border-left: 3px solid #ef4444; }
+.stat-card:nth-child(6) { border-left: 3px solid #a855f7; }
+
+.chart-container { padding: 24px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 24px; }
+.chart-title { font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 20px; }
+
+.bar-chart { display: flex; align-items: flex-end; gap: 12px; height: 160px; padding-bottom: 8px; }
+.bar-item { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 6px; height: 100%; justify-content: flex-end; }
+.bar { width: 100%; background: var(--gradient-gold); border-radius: 4px 4px 0 0; transition: height 1s cubic-bezier(0.4,0,0.2,1); min-height: 4px; }
+.bar:hover { filter: brightness(1.2); }
+.bar-value { font-size: 0.7rem; color: var(--accent); font-weight: 700; }
+.bar-label { font-size: 0.7rem; color: var(--text-muted); text-align: center; }
+
+.empty-state { text-align: center; padding: 60px 20px; }
+.empty-state-icon { font-size: 4rem; margin-bottom: 16px; display: block; opacity: 0.5; }
+
+.timeline { position: relative; padding-left: 28px; }
+.timeline::before { content: ''; position: absolute; left: 8px; top: 0; bottom: 0; width: 2px; background: var(--border); }
+.timeline-item { position: relative; margin-bottom: 24px; }
+.timeline-dot { position: absolute; left: -24px; top: 4px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg-dark); }
+.timeline-content { padding: 16px 20px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-sm); }
+
+.welcome-banner { padding: 32px 40px; background: linear-gradient(135deg, rgba(212,160,23,0.1), rgba(26,58,107,0.2)); border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 32px; display: flex; align-items: center; gap: 24px; position: relative; overflow: hidden; }
+.welcome-banner::before { content: ''; position: absolute; top: -50%; right: -10%; width: 300px; height: 300px; background: radial-gradient(circle, rgba(212,160,23,0.08), transparent 70%); pointer-events: none; }
+.welcome-emoji { font-size: 4rem; flex-shrink: 0; }
+.welcome-text h2 { font-family: var(--font-display); font-size: 1.6rem; font-weight: 900; color: var(--text-primary); margin-bottom: 6px; }
+.welcome-text p { font-size: 0.9rem; color: var(--text-secondary); }
+
+.upload-zone { border: 2px dashed var(--border); border-radius: var(--radius); padding: 40px; text-align: center; cursor: pointer; transition: var(--transition); }
+.upload-zone:hover { border-color: var(--accent); background: rgba(212,160,23,0.04); }
+
+@media (max-width: 768px) {
+  .sidebar { width: 260px; transform: translateX(-100%); z-index: 500; }
+  .sidebar.mobile-open { transform: translateX(0); box-shadow: 0 0 80px rgba(0,0,0,0.8); }
+  .main-content { margin-left: 0; padding: 16px; }
+  .stats-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .stat-card { padding: 20px; }
+  .stat-card-value { font-size: 1.6rem; }
+  .welcome-banner { flex-direction: column; text-align: center; padding: 24px; }
+}
+@media (max-width: 480px) {
+  .stats-grid { grid-template-columns: 1fr; }
+}
